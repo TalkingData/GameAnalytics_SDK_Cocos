@@ -20,7 +20,7 @@
 1. 分别选择 Android 和 iOS 平台进行功能定制时，请确保两个平台功能项一致。
 2. 如果申请 Native SDK 时只选择了部分功能，则需要在本项目中删除未选择功能对应的封装层代码。  
 a) 未选择`自定义事件`功能则删除以下3部分
-##### `android`  
+##### android 
 	删除 `TalkingDataGameAnalytics/android/TDCCTalkingDataGA.cpp` 文件中如下代码： 
 ```
 	void TDCCTalkingDataGA::onEvent(const char* eventId, EventParamMap* map) {  
@@ -40,7 +40,7 @@ a) 未选择`自定义事件`功能则删除以下3部分
 		}
 	}
 ```
-##### `iOS` 
+##### iOS
 
 ```
 删除 `TalkingDataGameAnalytics/ios/TDCCTalkingDataGA.mm` 文件中如下代码：
