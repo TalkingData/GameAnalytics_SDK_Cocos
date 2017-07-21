@@ -4,16 +4,20 @@
 :q   
 ### <a name="Explain"></a>集成说明 
 1. 下载本项目（封装层）到本地；
+
 2. 访问 TalkingData官网 下载最新版的 Android 和 iOS 平台 App Analytics SDK（ Native SDK）
  	- 方法1：选择 Unity 平台进行功能定制；
  	- 方法2：分别选择 Android 和 iOS 平台进行功能定制，请确保两个平台功能项一致；
 <img src="http://i2.kiimg.com/601478/1189fd832c8e3bfd.jpg" width="600px" />
+
 3. 将下载的最新版  `Native SDK` 引入到您的工程中。
 	- Android 平台
 	将最新的`.jar`文件复制到 `／libs` 目录下
 	- iOS
 	将最新的`.a`文件复制到 `xcode`项目的`iOS` 目录下
+	
 4. 按 `Native SDK` 功能选项对封装层代码进行必要的删减，详见“注意事项”第2条；
+
 5. 将 `Cococs SDK `集成您需要统计的工程中，并按 集成文档 进行必要配置和功能调用。
 
 ### <a name="Notes"></a>注意事项
