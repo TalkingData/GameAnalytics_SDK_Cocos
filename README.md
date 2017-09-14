@@ -5,8 +5,8 @@
 ### <a name="Explain"></a>集成说明 
 1. 下载本项目（封装层）到本地；
 
-2. 访问 TalkingData官网 下载最新版的 Android 和 iOS 平台 App Analytics SDK（ Native SDK）
- 	- 方法1：选择 Unity 平台进行功能定制；
+2. 访问 TalkingData官网 下载最新版的 Android 和 iOS 平台 Game Analytics SDK（ Native SDK）
+ 	- 方法1：选择 Cocos2d 平台进行功能定制；
  	- 方法2：分别选择 Android 和 iOS 平台进行功能定制，请确保两个平台功能项一致；
 <img src="http://i2.kiimg.com/601478/1189fd832c8e3bfd.jpg" width="600px" />
 
