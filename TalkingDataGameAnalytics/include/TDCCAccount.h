@@ -27,6 +27,7 @@ public:
 		kAccountQQ = 3,
 		kAccountTencentWeibo = 4,
 		kAccountND91 = 5,
+		kAccountTypeWeiXin = 6,
 		kAccountType1 = 11,
 		kAccountType2 = 12,
 		kAccountType3 = 13,

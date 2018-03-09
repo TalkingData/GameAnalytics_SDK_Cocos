@@ -602,6 +602,7 @@ void tolua_tdga_open (lua_State* tolua_S)
     tolua_constant(tolua_S, "kAccountQQ", TDCCAccount::kAccountQQ);
     tolua_constant(tolua_S, "kAccountTencentWeibo", TDCCAccount::kAccountTencentWeibo);
     tolua_constant(tolua_S, "kAccountND91", TDCCAccount::kAccountND91);
+    tolua_constant(tolua_S, "kAccountTypeWeiXin", TDCCAccount::kAccountTypeWeiXin);
     tolua_constant(tolua_S, "kAccountType1", TDCCAccount::kAccountType1);
     tolua_constant(tolua_S, "kAccountType2", TDCCAccount::kAccountType2);
     tolua_constant(tolua_S, "kAccountType3", TDCCAccount::kAccountType3);

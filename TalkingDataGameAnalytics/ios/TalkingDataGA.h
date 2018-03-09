@@ -17,6 +17,7 @@ typedef enum {
     kAccountQQ = 3,             // QQ帐户
     kAccountTencentWeibo = 4,   // 腾讯微博
     kAccountND91 = 5,           // 91帐户
+    kAccountTypeWeiXin = 6,     // 微信
     kAccountType1 = 11,         // 预留1
     kAccountType2 = 12,         // 预留2
     kAccountType3 = 13,         // 预留3
