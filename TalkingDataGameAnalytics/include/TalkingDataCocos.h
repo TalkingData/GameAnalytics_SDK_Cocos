@@ -1,5 +1,5 @@
-#ifndef __TalkingDataUnity_h__
-#define __TalkingDataUnity_h__
+#ifndef __TalkingDataCocos_h__
+#define __TalkingDataCocos_h__
 
 #include "TDCCTalkingDataGA.h"
 #include "TDCCAccount.h"
@@ -8,4 +8,4 @@
 #include "TDCCVirtualCurrency.h"
 
 
-#endif // __TalkingDataUnity_h__
+#endif // __TalkingDataCocos_h__
