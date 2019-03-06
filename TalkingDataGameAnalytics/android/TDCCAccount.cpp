@@ -42,7 +42,7 @@ TDCCAccount::~TDCCAccount() {
 	JNIEnv *env = 0;
 	if (mAccount && TDGAJniHelper::getJNIEnv(&env)) {
 		env->DeleteGlobalRef((jobject)mAccount);
-		mAccount == NULL;
+		mAccount = NULL;
 	}
 }
 
@@ -58,7 +58,7 @@ TDCCAccount* TDCCAccount::setAccount(const char* accountId) {
 		, "(Ljava/lang/String;)Lcom/tendcloud/tenddata/TDGAAccount;")) {
 		if (account.mAccount) {
 			t.env->DeleteGlobalRef((jobject)account.mAccount);
-			account.mAccount == NULL;
+			account.mAccount = NULL;
 		}
 
 		jstring jaccountId = t.env->NewStringUTF(accountId);
