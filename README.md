@@ -1,4 +1,4 @@
-# TalkingData Game Analytics Cocos SDK
+## TalkingData Game Analytics Cocos SDK
 
 `Game Analytics Cocos2dx` 平台 SDK 由`封装层`和 `Native SDK` 两部分构成，目前`GitHub`上提供了封装层代码，需要从 [TalkingData官网](https://www.talkingdata.com/spa/sdk/#/config) 官网 下载最新版的 `Android` 和 `iOS` 平台 `Native SDK`，组合使用。
  
