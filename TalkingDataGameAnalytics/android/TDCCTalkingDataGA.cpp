@@ -62,6 +62,20 @@ const char* TDCCTalkingDataGA::getDeviceId() {
 	return ret.c_str();
 }
 
+const char* TDCCTalkingDataGA::getOAID() {
+	static std::string oaid = "";
+
+	TDGAJniMethodInfo t;
+	if (TDGAJniHelper::getStaticMethodInfo(t
+		, gClass_TalkingDtatGA
+		, "getOAID"
+		, "()Ljava/lang/String;")) {
+		jstring jstr = (jstring)t.env->CallStaticObjectMethod(gClass_TalkingDtatGA, t.methodID);
+		ret = TDGAJniHelper::jstring2string(jstr);
+	}
+	return oaid.c_str();
+}
+
 void TDCCTalkingDataGA::onKill() {
 	TDGAJniMethodInfo t;
 	if (TDGAJniHelper::getStaticMethodInfo(t
