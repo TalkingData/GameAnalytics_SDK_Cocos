@@ -160,6 +160,39 @@ int lua_cocos2dx_TalkingDataGA_getDeviceId(lua_State* tolua_S)
 #endif
     return 0;
 }
+
+int lua_cocos2dx_TalkingDataGA_getOAID(lua_State* tolua_S)
+{
+    int argc = 0;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertable(tolua_S,1,"TalkingDataGA",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    argc = lua_gettop(tolua_S) - 1;
+
+    if (argc == 0)
+    {
+        if(!ok)
+            return 0;
+        const char* ret = TDCCTalkingDataGA::getOAID();
+        tolua_pushstring(tolua_S,(const char*)ret);
+        return 1;
+    }
+    CCLOG("%s has wrong number of arguments: %d, was expecting %d\n ", "getOAID",argc, 0);
+    return 0;
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_cocos2dx_TalkingDataGA_getOAID'.",&tolua_err);
+#endif
+    return 0;
+}
+
 int lua_cocos2dx_TalkingDataGA_onEvent(lua_State* tolua_S)
 {
     int argc = 0;
@@ -283,6 +316,7 @@ int lua_register_cocos2dx_TalkingDataGA(lua_State* tolua_S)
         tolua_function(tolua_S,"onKill", lua_cocos2dx_TalkingDataGA_onKill);
         tolua_function(tolua_S,"onStart", lua_cocos2dx_TalkingDataGA_onStart);
         tolua_function(tolua_S,"getDeviceId", lua_cocos2dx_TalkingDataGA_getDeviceId);
+        tolua_function(tolua_S,"getOAID", lua_cocos2dx_TalkingDataGA_getOAID);
         tolua_function(tolua_S,"onEvent", lua_cocos2dx_TalkingDataGA_onEvent);
         tolua_function(tolua_S,"setVerboseLogDisabled", lua_cocos2dx_TalkingDataGA_setVerboseLogDisabled);
         tolua_function(tolua_S,"setLocation", lua_cocos2dx_TalkingDataGA_setLocation);

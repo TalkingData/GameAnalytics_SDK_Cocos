@@ -138,6 +138,27 @@ tolua_lerror:
 #endif
 }
 
+static int tolua_TalkingDataGA_getOAID(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+    tolua_Error tolua_err;
+    if (!tolua_isusertable(tolua_S, 1, kTalkingDataGA, 0, &tolua_err) ||
+        !tolua_isnoobj(tolua_S, 2, &tolua_err))
+        goto tolua_lerror;
+    else
+#endif
+    {
+        const char* oaid = TDCCTalkingDataGA::getOAID();
+        tolua_pushstring(tolua_S, oaid);
+    }
+    return 1;
+#ifndef TOLUA_RELEASE
+tolua_lerror:
+    tolua_error(tolua_S, "ferror in function 'getOAID'.", &tolua_err);
+    return 0;
+#endif
+}
+
 static int tolua_TalkingDataGA_onKill(lua_State* tolua_S)
 {
 #ifndef TOLUA_RELEASE
@@ -590,6 +611,7 @@ void tolua_tdga_open (lua_State* tolua_S)
     tolua_function(tolua_S, "onEvent", tolua_TalkingDataGA_onEvent);
     tolua_function(tolua_S, "setLocation", tolua_TalkingDataGA_setLocation);
     tolua_function(tolua_S, "getDeviceId", tolua_TalkingDataGA_getDeviceId);
+    tolua_function(tolua_S, "getOAID",tolua_TalkingDataGA_getOAID);
     tolua_function(tolua_S, "onKill", tolua_TalkingDataGA_onKill);
     tolua_function(tolua_S, "setVerboseLogDisabled", tolua_TalkingDataGA_setVerboseLogDisabled);
     tolua_endmodule(tolua_S);
