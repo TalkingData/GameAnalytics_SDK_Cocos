@@ -9,7 +9,7 @@ LOCAL_SRC_FILES := TDCCTalkingDataGA.cpp \
     TDCCItem.cpp \
     TDCCMIssion.cpp \
     TDCCVirtualCurrency.cpp \
-    TDCCAccount.cpp
+    TDCCProfile.cpp
 
 LOCAL_CFLAGS := 
 

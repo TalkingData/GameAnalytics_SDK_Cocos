@@ -2,7 +2,7 @@
 #define __TalkingDataCocos_h__
 
 #include "TDCCTalkingDataGA.h"
-#include "TDCCAccount.h"
+#include "TDCCProfile.h"
 #include "TDCCItem.h"
 #include "TDCCMission.h"
 #include "TDCCVirtualCurrency.h"

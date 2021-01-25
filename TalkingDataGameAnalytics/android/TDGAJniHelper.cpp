@@ -10,16 +10,16 @@ using namespace std;
 #define JAVA_CLASS_TDGA         "com/tendcloud/tenddata/TalkingDataGA"
 #define JAVA_CLASS_MISSION      "com/tendcloud/tenddata/TDGAMission"
 #define JAVA_CLASS_ITEM         "com/tendcloud/tenddata/TDGAItem"
-#define JAVA_CLASS_ACCOUNT      "com/tendcloud/tenddata/TDGAAccount"
-#define JAVA_CLASS_ACCOUNT_TYPE "com/tendcloud/tenddata/TDGAAccount$AccountType"
-#define JAVA_CLASS_GENDER       "com/tendcloud/tenddata/TDGAAccount$Gender"
+#define JAVA_CLASS_PROFILE      "com/tendcloud/tenddata/TDGAProfile"
+#define JAVA_CLASS_PROFILE_TYPE "com/tendcloud/tenddata/TDGAProfile$ProfileType"
+#define JAVA_CLASS_GENDER       "com/tendcloud/tenddata/TDGAProfile$Gender"
 
 jclass gClass_Virtual;
 jclass gClass_TalkingDtatGA;
 jclass gClass_Mission;
 jclass gClass_Item;
-jclass gClass_Account;
-jclass gClass_AccountType;
+jclass gClass_Profile;
+jclass gClass_ProfileType;
 jclass gClass_Gender;
 
 extern "C" {
@@ -153,11 +153,11 @@ void TDGAJniHelper::globalDeInit() {
 	env->DeleteGlobalRef(gClass_Item);
 	gClass_Item = NULL;
 
-	env->DeleteGlobalRef(gClass_Account);
-	gClass_Account = NULL;
+	env->DeleteGlobalRef(gClass_Profile);
+	gClass_Profile = NULL;
 
-	env->DeleteGlobalRef(gClass_AccountType);
-	gClass_AccountType = NULL;
+	env->DeleteGlobalRef(gClass_ProfileType);
+	gClass_ProfileType = NULL;
 
 	env->DeleteGlobalRef(gClass_Gender);
 	gClass_Gender = NULL;
@@ -181,11 +181,11 @@ void TDGAJniHelper::setJavaVM(JavaVM *javaVM) {
     c = env->FindClass(JAVA_CLASS_ITEM);
     gClass_Item = (jclass)env->NewGlobalRef(c);
 
-    c = env->FindClass(JAVA_CLASS_ACCOUNT);
-    gClass_Account = (jclass)env->NewGlobalRef(c);
+    c = env->FindClass(JAVA_CLASS_PROFILE);
+    gClass_Profile = (jclass)env->NewGlobalRef(c);
 
-    c = env->FindClass(JAVA_CLASS_ACCOUNT_TYPE);
-    gClass_AccountType = (jclass)env->NewGlobalRef(c);
+    c = env->FindClass(JAVA_CLASS_PROFILE_TYPE);
+    gClass_ProfileType = (jclass)env->NewGlobalRef(c);
 
     c = env->FindClass(JAVA_CLASS_GENDER);
     gClass_Gender = (jclass)env->NewGlobalRef(c);

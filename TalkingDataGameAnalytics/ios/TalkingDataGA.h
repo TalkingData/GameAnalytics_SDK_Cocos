@@ -11,24 +11,24 @@
 
 // 帐户类型
 typedef enum {
-    kAccountAnonymous = 0,      // 匿名帐户
-    kAccountRegistered = 1,     // 显性注册帐户
-    kAccountSinaWeibo = 2,      // 新浪微博
-    kAccountQQ = 3,             // QQ帐户
-    kAccountTencentWeibo = 4,   // 腾讯微博
-    kAccountND91 = 5,           // 91帐户
-    kAccountTypeWeiXin = 6,     // 微信
-    kAccountType1 = 11,         // 预留1
-    kAccountType2 = 12,         // 预留2
-    kAccountType3 = 13,         // 预留3
-    kAccountType4 = 14,         // 预留4
-    kAccountType5 = 15,         // 预留5
-    kAccountType6 = 16,         // 预留6
-    kAccountType7 = 17,         // 预留7
-    kAccountType8 = 18,         // 预留8
-    kAccountType9 = 19,         // 预留9
-    kAccountType10 = 20         // 预留10
-} TDGAAccountType;
+    kProfileAnonymous = 0,      // 匿名帐户
+    kProfileRegistered = 1,     // 显性注册帐户
+    kProfileSinaWeibo = 2,      // 新浪微博
+    kProfileQQ = 3,             // QQ帐户
+    kProfileTencentWeibo = 4,   // 腾讯微博
+    kProfileND91 = 5,           // 91帐户
+    kProfileTypeWeiXin = 6,     // 微信
+    kProfileType1 = 11,         // 预留1
+    kProfileType2 = 12,         // 预留2
+    kProfileType3 = 13,         // 预留3
+    kProfileType4 = 14,         // 预留4
+    kProfileType5 = 15,         // 预留5
+    kProfileType6 = 16,         // 预留6
+    kProfileType7 = 17,         // 预留7
+    kProfileType8 = 18,         // 预留8
+    kProfileType9 = 19,         // 预留9
+    kProfileType10 = 20         // 预留10
+} TDGAProfileType;
 
 // 性别
 typedef enum {
@@ -98,25 +98,25 @@ typedef enum {
 
 
 
-@interface TDGAAccount : NSObject
+@interface TDGAProfile : NSObject
 
 /**
- *	@method	setAccount  设置帐号
- *	@param 	accountId   帐号id    类型:NSString
+ *	@method	setProfile  设置帐号
+ *	@param 	profileId   帐号id    类型:NSString
  */
-+ (TDGAAccount *)setAccount:(NSString *)accountId;
++ (TDGAProfile *)setProfile:(NSString *)profileId;
 
 /**
- *	@method	setAccountName  设置帐号名称
- *	@param 	accountName     账户名称    类型:NSString
+ *	@method	setProfileName  设置帐号名称
+ *	@param 	profileName     账户名称    类型:NSString
  */
-- (void)setAccountName:(NSString *)accountName;
+- (void)setProfileName:(NSString *)profileName;
 
 /**
- *	@method	setAccountType  设置帐号类型
- *	@param 	accountType     账户类型        类型TDGAAccountType
+ *	@method	setProfileType  设置帐号类型
+ *	@param 	profileType     账户类型        类型TDGAProfileType
  */
-- (void)setAccountType:(TDGAAccountType)accountType;
+- (void)setProfileType:(TDGAProfileType)profileType;
 
 /**
  *	@method	setLevel    设置帐号等级

@@ -71,7 +71,7 @@ const char* TDCCTalkingDataGA::getOAID() {
 		, "getOAID"
 		, "()Ljava/lang/String;")) {
 		jstring jstr = (jstring)t.env->CallStaticObjectMethod(gClass_TalkingDtatGA, t.methodID);
-		ret = TDGAJniHelper::jstring2string(jstr);
+		oaid = TDGAJniHelper::jstring2string(jstr);
 	}
 	return oaid.c_str();
 }

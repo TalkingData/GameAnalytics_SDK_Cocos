@@ -11,17 +11,17 @@
 #include "TalkingData.h"
 
 #define kTalkingDataGA       "TalkingDataGA"
-#define kTDGAAccount         "TDGAAccount"
+#define kTDGAProfile         "TDGAProfile"
 #define kTDGAMission         "TDGAMission"
 #define kTDGAVirtualCurrency "TDGAVirtualCurrency"
 #define kTDGAItem            "TDGAItem"
 
-static TDCCAccount* account = NULL;
+static TDCCProfile* profile = NULL;
 
 void tolua_reg_tdga_types (lua_State* tolua_S)
 {
     tolua_usertype(tolua_S, kTalkingDataGA);
-    tolua_usertype(tolua_S, kTDGAAccount);
+    tolua_usertype(tolua_S, kTDGAProfile);
     tolua_usertype(tolua_S, kTDGAMission);
     tolua_usertype(tolua_S, kTDGAVirtualCurrency);
     tolua_usertype(tolua_S, kTDGAItem);
@@ -199,110 +199,110 @@ tolua_lerror:
 #endif
 }
 
-static int tolua_TDGAAccount_setAccount(lua_State* tolua_S)
+static int tolua_TDGAProfile_setProfile(lua_State* tolua_S)
 {
 #ifndef TOLUA_RELEASE
     tolua_Error tolua_err;
-    if (!tolua_isusertable(tolua_S, 1, kTDGAAccount, 0, &tolua_err) ||
+    if (!tolua_isusertable(tolua_S, 1, kTDGAProfile, 0, &tolua_err) ||
         !tolua_isstring(tolua_S, 2, 0, &tolua_err) ||
         !tolua_isnoobj(tolua_S, 3, &tolua_err))
         goto tolua_lerror;
     else
 #endif
     {
-        const char* accountId = tolua_tostring(tolua_S, 2, 0);
-        account = TDCCAccount::setAccount(accountId);
+        const char* profileId = tolua_tostring(tolua_S, 2, 0);
+        profile = TDCCProfile::setProfile(profileId);
     }
     return 1;
 #ifndef TOLUA_RELEASE
 tolua_lerror:
-    tolua_error(tolua_S, "ferror in function 'setAccount'.", &tolua_err);
+    tolua_error(tolua_S, "ferror in function 'setProfile'.", &tolua_err);
     return 0;
 #endif
 }
 
-static int tolua_TDGAAccount_setAccountName(lua_State* tolua_S)
+static int tolua_TDGAProfile_setProfileName(lua_State* tolua_S)
 {
 #ifndef TOLUA_RELEASE
     tolua_Error tolua_err;
-    if (!tolua_isusertable(tolua_S, 1, kTDGAAccount, 0, &tolua_err) ||
+    if (!tolua_isusertable(tolua_S, 1, kTDGAProfile, 0, &tolua_err) ||
         !tolua_isstring(tolua_S, 2, 0, &tolua_err) ||
         !tolua_isnoobj(tolua_S, 3, &tolua_err))
         goto tolua_lerror;
     else
 #endif
     {
-        if (account)
+        if (profile)
         {
-            const char* accountName = tolua_tostring(tolua_S, 2, 0);
-            account->setAccountName(accountName);
+            const char* profileName = tolua_tostring(tolua_S, 2, 0);
+            profile->setProfileName(profileName);
         }
 #ifndef TOLUA_RELEASE
         else
         {
-            tolua_error(tolua_S, "invalid 'account' in function 'setAccountName'.", &tolua_err);
+            tolua_error(tolua_S, "invalid 'profile' in function 'setProfileName'.", &tolua_err);
         }
 #endif
     }
     return 0;
 #ifndef TOLUA_RELEASE
 tolua_lerror:
-    tolua_error(tolua_S, "ferror in function 'setAccountName'.", &tolua_err);
+    tolua_error(tolua_S, "ferror in function 'setProfileName'.", &tolua_err);
     return 0;
 #endif
 }
 
-static int tolua_TDGAAccount_setAccountType(lua_State* tolua_S)
+static int tolua_TDGAProfile_setProfileType(lua_State* tolua_S)
 {
 #ifndef TOLUA_RELEASE
     tolua_Error tolua_err;
-    if (!tolua_isusertable(tolua_S, 1, kTDGAAccount, 0, &tolua_err) ||
+    if (!tolua_isusertable(tolua_S, 1, kTDGAProfile, 0, &tolua_err) ||
         !tolua_isnumber(tolua_S, 2, 0, &tolua_err) ||
         !tolua_isnoobj(tolua_S, 3, &tolua_err))
         goto tolua_lerror;
     else
 #endif
     {
-        if (account)
+        if (profile)
         {
-            TDCCAccount::TDCCAccountType accountType = (TDCCAccount::TDCCAccountType)tolua_tonumber(tolua_S, 2, 0);
-            account->setAccountType(accountType);
+            TDCCProfile::TDCCProfileType profileType = (TDCCProfile::TDCCProfileType)tolua_tonumber(tolua_S, 2, 0);
+            profile->setProfileType(profileType);
         }
 #ifndef TOLUA_RELEASE
         else
         {
-            tolua_error(tolua_S, "invalid 'account' in function 'setAccountType'.", &tolua_err);
+            tolua_error(tolua_S, "invalid 'profile' in function 'setProfileType'.", &tolua_err);
         }
 #endif
     }
     return 0;
 #ifndef TOLUA_RELEASE
 tolua_lerror:
-    tolua_error(tolua_S, "ferror in function 'setAccountType", &tolua_err);
+    tolua_error(tolua_S, "ferror in function 'setProfileType", &tolua_err);
     return 0;
 #endif
 }
 
-static int tolua_TDGAAccount_setLevel(lua_State* tolua_S)
+static int tolua_TDGAProfile_setLevel(lua_State* tolua_S)
 {
 #ifndef TOLUA_RELEASE
     tolua_Error tolua_err;
-    if (!tolua_isusertable(tolua_S, 1, kTDGAAccount, 0, &tolua_err) ||
+    if (!tolua_isusertable(tolua_S, 1, kTDGAProfile, 0, &tolua_err) ||
         !tolua_isnumber(tolua_S, 2, 0, &tolua_err) ||
         !tolua_isnoobj(tolua_S, 3, &tolua_err))
         goto tolua_lerror;
     else
 #endif
     {
-        if (account)
+        if (profile)
         {
             int level = (int) tolua_tonumber(tolua_S, 2, 0);
-            account->setLevel(level);
+            profile->setLevel(level);
         }
 #ifndef TOLUA_RELEASE
         else
         {
-            tolua_error(tolua_S, "invalid 'account' in function 'setLevel'.", &tolua_err);
+            tolua_error(tolua_S, "invalid 'profile' in function 'setLevel'.", &tolua_err);
         }
 #endif
     }
@@ -314,26 +314,26 @@ tolua_lerror:
 #endif
 }
 
-static int tolua_TDGAAccount_setGender(lua_State* tolua_S)
+static int tolua_TDGAProfile_setGender(lua_State* tolua_S)
 {
 #ifndef TOLUA_RELEASE
     tolua_Error tolua_err;
-    if (!tolua_isusertable(tolua_S, 1, kTDGAAccount, 0, &tolua_err) ||
+    if (!tolua_isusertable(tolua_S, 1, kTDGAProfile, 0, &tolua_err) ||
         !tolua_isnumber(tolua_S, 2, 0, &tolua_err) ||
         !tolua_isnoobj(tolua_S, 3, &tolua_err))
         goto tolua_lerror;
     else
 #endif
     {
-        if (account)
+        if (profile)
         {
-            TDCCAccount::TDCCGender gender = (TDCCAccount::TDCCGender)tolua_tonumber(tolua_S, 2, 0);
-            account->setGender(gender);
+            TDCCProfile::TDCCGender gender = (TDCCProfile::TDCCGender)tolua_tonumber(tolua_S, 2, 0);
+            profile->setGender(gender);
         }
 #ifndef TOLUA_RELEASE
         else
         {
-            tolua_error(tolua_S, "invalid 'account' in function 'setGender'.", &tolua_err);
+            tolua_error(tolua_S, "invalid 'profile' in function 'setGender'.", &tolua_err);
         }
 #endif
     }
@@ -345,26 +345,26 @@ tolua_lerror:
 #endif
 }
 
-static int tolua_TDGAAccount_setAge(lua_State* tolua_S)
+static int tolua_TDGAProfile_setAge(lua_State* tolua_S)
 {
 #ifndef TOLUA_RELEASE
     tolua_Error tolua_err;
-    if (!tolua_isusertable(tolua_S, 1, kTDGAAccount, 0, &tolua_err) ||
+    if (!tolua_isusertable(tolua_S, 1, kTDGAProfile, 0, &tolua_err) ||
         !tolua_isnumber(tolua_S, 2, 0, &tolua_err) ||
         !tolua_isnoobj(tolua_S, 3, &tolua_err))
         goto tolua_lerror;
     else
 #endif
     {
-        if (account)
+        if (profile)
         {
             int age = (int) tolua_tonumber(tolua_S, 2, 0);
-            account->setAge(age);
+            profile->setAge(age);
         }
 #ifndef TOLUA_RELEASE
         else
         {
-            tolua_error(tolua_S, "invalid 'account' in function 'setAge'.", &tolua_err);
+            tolua_error(tolua_S, "invalid 'profile' in function 'setAge'.", &tolua_err);
         }
 #endif
     }
@@ -376,26 +376,26 @@ tolua_lerror:
 #endif
 }
 
-static int tolua_TDGAAccount_setGameServer(lua_State* tolua_S)
+static int tolua_TDGAProfile_setGameServer(lua_State* tolua_S)
 {
 #ifndef TOLUA_RELEASE
     tolua_Error tolua_err;
-    if (!tolua_isusertable(tolua_S, 1, kTDGAAccount, 0, &tolua_err) ||
+    if (!tolua_isusertable(tolua_S, 1, kTDGAProfile, 0, &tolua_err) ||
         !tolua_isstring(tolua_S, 2, 0, &tolua_err) ||
         !tolua_isnoobj(tolua_S, 3, &tolua_err))
         goto tolua_lerror;
     else
 #endif
     {
-        if (account)
+        if (profile)
         {
             const char* gameServer = tolua_tostring(tolua_S, 2, 0);
-            account->setGameServer(gameServer);
+            profile->setGameServer(gameServer);
         }
 #ifndef TOLUA_RELEASE
         else
         {
-            tolua_error(tolua_S, "invalid 'account' in function 'setGameServer'.", &tolua_err);
+            tolua_error(tolua_S, "invalid 'profile' in function 'setGameServer'.", &tolua_err);
         }
 #endif
     }
@@ -616,37 +616,37 @@ void tolua_tdga_open (lua_State* tolua_S)
     tolua_function(tolua_S, "setVerboseLogDisabled", tolua_TalkingDataGA_setVerboseLogDisabled);
     tolua_endmodule(tolua_S);
     
-    tolua_cclass(tolua_S, kTDGAAccount, kTDGAAccount, "", NULL);
-    tolua_beginmodule(tolua_S, kTDGAAccount);
-    tolua_constant(tolua_S, "kAccountAnonymous", TDCCAccount::kAccountAnonymous);
-    tolua_constant(tolua_S, "kAccountRegistered", TDCCAccount::kAccountRegistered);
-    tolua_constant(tolua_S, "kAccountSinaWeibo", TDCCAccount::kAccountSianWeibo);
-    tolua_constant(tolua_S, "kAccountQQ", TDCCAccount::kAccountQQ);
-    tolua_constant(tolua_S, "kAccountTencentWeibo", TDCCAccount::kAccountTencentWeibo);
-    tolua_constant(tolua_S, "kAccountND91", TDCCAccount::kAccountND91);
-    tolua_constant(tolua_S, "kAccountTypeWeiXin", TDCCAccount::kAccountTypeWeiXin);
-    tolua_constant(tolua_S, "kAccountType1", TDCCAccount::kAccountType1);
-    tolua_constant(tolua_S, "kAccountType2", TDCCAccount::kAccountType2);
-    tolua_constant(tolua_S, "kAccountType3", TDCCAccount::kAccountType3);
-    tolua_constant(tolua_S, "kAccountType4", TDCCAccount::kAccountType4);
-    tolua_constant(tolua_S, "kAccountType5", TDCCAccount::kAccountType5);
-    tolua_constant(tolua_S, "kAccountType6", TDCCAccount::kAccountType6);
-    tolua_constant(tolua_S, "kAccountType7", TDCCAccount::kAccountType7);
-    tolua_constant(tolua_S, "kAccountType8", TDCCAccount::kAccountType8);
-    tolua_constant(tolua_S, "kAccountType9", TDCCAccount::kAccountType9);
-    tolua_constant(tolua_S, "kAccountType10", TDCCAccount::kAccountType10);
+    tolua_cclass(tolua_S, kTDGAProfile, kTDGAProfile, "", NULL);
+    tolua_beginmodule(tolua_S, kTDGAProfile);
+    tolua_constant(tolua_S, "kProfileAnonymous", TDCCProfile::kProfileAnonymous);
+    tolua_constant(tolua_S, "kProfileRegistered", TDCCProfile::kProfileRegistered);
+    tolua_constant(tolua_S, "kProfileSinaWeibo", TDCCProfile::kProfileSianWeibo);
+    tolua_constant(tolua_S, "kProfileQQ", TDCCProfile::kProfileQQ);
+    tolua_constant(tolua_S, "kProfileTencentWeibo", TDCCProfile::kProfileTencentWeibo);
+    tolua_constant(tolua_S, "kProfileND91", TDCCProfile::kProfileND91);
+    tolua_constant(tolua_S, "kProfileTypeWeiXin", TDCCProfile::kProfileTypeWeiXin);
+    tolua_constant(tolua_S, "kProfileType1", TDCCProfile::kProfileType1);
+    tolua_constant(tolua_S, "kProfileType2", TDCCProfile::kProfileType2);
+    tolua_constant(tolua_S, "kProfileType3", TDCCProfile::kProfileType3);
+    tolua_constant(tolua_S, "kProfileType4", TDCCProfile::kProfileType4);
+    tolua_constant(tolua_S, "kProfileType5", TDCCProfile::kProfileType5);
+    tolua_constant(tolua_S, "kProfileType6", TDCCProfile::kProfileType6);
+    tolua_constant(tolua_S, "kProfileType7", TDCCProfile::kProfileType7);
+    tolua_constant(tolua_S, "kProfileType8", TDCCProfile::kProfileType8);
+    tolua_constant(tolua_S, "kProfileType9", TDCCProfile::kProfileType9);
+    tolua_constant(tolua_S, "kProfileType10", TDCCProfile::kProfileType10);
     
-    tolua_constant(tolua_S, "kGenderUnknown", TDCCAccount::kGenderUnknown);
-    tolua_constant(tolua_S, "kGenderMale", TDCCAccount::kGenderMale);
-    tolua_constant(tolua_S, "kGenderFemale", TDCCAccount::kGenderFemale);
+    tolua_constant(tolua_S, "kGenderUnknown", TDCCProfile::kGenderUnknown);
+    tolua_constant(tolua_S, "kGenderMale", TDCCProfile::kGenderMale);
+    tolua_constant(tolua_S, "kGenderFemale", TDCCProfile::kGenderFemale);
     
-    tolua_function(tolua_S, "setAccount", tolua_TDGAAccount_setAccount);
-    tolua_function(tolua_S, "setAccountName", tolua_TDGAAccount_setAccountName);
-    tolua_function(tolua_S, "setAccountType", tolua_TDGAAccount_setAccountType);
-    tolua_function(tolua_S, "setLevel", tolua_TDGAAccount_setLevel);
-    tolua_function(tolua_S, "setGender", tolua_TDGAAccount_setGender);
-    tolua_function(tolua_S, "setAge", tolua_TDGAAccount_setAge);
-    tolua_function(tolua_S, "setGameServer", tolua_TDGAAccount_setGameServer);
+    tolua_function(tolua_S, "setProfile", tolua_TDGAProfile_setProfile);
+    tolua_function(tolua_S, "setProfileName", tolua_TDGAProfile_setProfileName);
+    tolua_function(tolua_S, "setProfileType", tolua_TDGAProfile_setProfileType);
+    tolua_function(tolua_S, "setLevel", tolua_TDGAProfile_setLevel);
+    tolua_function(tolua_S, "setGender", tolua_TDGAProfile_setGender);
+    tolua_function(tolua_S, "setAge", tolua_TDGAProfile_setAge);
+    tolua_function(tolua_S, "setGameServer", tolua_TDGAProfile_setGameServer);
     tolua_endmodule(tolua_S);
     
     tolua_cclass(tolua_S, kTDGAMission, kTDGAMission, "", NULL);

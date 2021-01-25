@@ -28,6 +28,8 @@ public:
     static void setLatitude(double latitude ,double longitude);
 
     static const char* getDeviceId();
+
+    static const char* getOAID();
     
     static void onKill();
 
