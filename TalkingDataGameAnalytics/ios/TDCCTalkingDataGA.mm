@@ -50,6 +50,10 @@ const char* TDCCTalkingDataGA::getDeviceId() {
     return [deviceId UTF8String];
 }
 
+const char* TDCCTalkingDataGA::getOAID() {
+    return "";
+}
+
 void TDCCTalkingDataGA::onKill() {
     // for android. ios donothing.
 }
